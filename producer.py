@@ -1,17 +1,3 @@
-"""Order producer.
-
-Generates randomized `Order` records, serializes them with Avro against the
-Confluent Schema Registry, and publishes them to the `orders` topic.
-
-    python src/producer.py                  # 50 orders, 4/second
-    python src/producer.py -n 200 -r 20     # 200 orders, 20/second
-    python src/producer.py -n 0             # run forever until Ctrl-C
-
-Producer-side reliability (the first layer of "retry logic"):
-  * acks=all             -> the leader waits for all in-sync replicas
-  * enable.idempotence   -> librdkafka retries internally without duplicating
-  * retries + backoff    -> transient broker/network errors are retried for us
-"""
 import argparse
 import random
 import signal
