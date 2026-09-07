@@ -1,0 +1,4 @@
+# Kafka client + Avro / Schema Registry support
+confluent-kafka[avro,schemaregistry]>=2.4.0
+fastavro>=1.9.4
+requests>=2.31.0
