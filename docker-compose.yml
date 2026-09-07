@@ -43,7 +43,7 @@ services:
       - "8081:8081"
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:29092
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
       SCHEMA_REGISTRY_SCHEMA_COMPATIBILITY_LEVEL: backward
     healthcheck:
@@ -52,8 +52,6 @@ services:
       timeout: 5s
       retries: 12
 
-  # Optional but very handy for the live demo: browse topics, messages and
-  # registered schemas in a browser at http://localhost:8080
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     container_name: kafka-ui
